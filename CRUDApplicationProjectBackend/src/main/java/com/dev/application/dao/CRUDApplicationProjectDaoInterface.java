@@ -8,7 +8,7 @@ public interface CRUDApplicationProjectDaoInterface {
 	
 	List<CRUDApplicationProject> insertDetail(CRUDApplicationProject crudApplicationProject);
 	
-	List<CRUDApplicationProject> updateDetails(CRUDApplicationProject crudApplicationProject);
+	List<CRUDApplicationProject> updateDetail(CRUDApplicationProject crudApplicationProject);
 	
 	List<CRUDApplicationProject> deleteDetail(int id);
 	

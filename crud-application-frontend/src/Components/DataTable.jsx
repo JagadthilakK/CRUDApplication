@@ -27,10 +27,10 @@ export const DataTable = ({data,onEdited,searchItem}) => {
 
     const handleEditSubmit =async ()=>{
       try{
-        const response = await fetch(`http://localhost:8082/updateDetail`,
+        const response = await fetch(`https://springcruddemo-50021865643.development.catalystappsail.in/updateDetail`,
           {
             method:"PUT",
-            headers:{"Content-type":"application/json"},
+            headers:{"Content-type":"application/json",'Access-Control-Allow-Origin': '*'},
             body:JSON.stringify(currentDetail)
           });
 
@@ -58,7 +58,8 @@ export const DataTable = ({data,onEdited,searchItem}) => {
       }).then(async(result)=>{
         if(result.isConfirmed){
           try{
-            const response = await fetch(`http://localhost:8082/deleteDetail/${id}`,{
+            const response = await fetch(`https://springcruddemo-50021865643.development.catalystappsail.in/deleteDetail/${id}`,{
+              headers:{'Access-Control-Allow-Origin': '*'},
               method:"DELETE"
             });
             if(response.ok){

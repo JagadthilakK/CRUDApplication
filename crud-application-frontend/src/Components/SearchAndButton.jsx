@@ -26,10 +26,15 @@ export const SearchAndButton = ({onRecordAdded,setSearchItem}) => {
 
   const addUserButton = async()=>{
     try{
-      const response = await fetch("http://localhost:8082/insertDetail",
+      const response = await fetch("https://springcruddemo-50021865643.development.catalystappsail.in/insertDetail",
         {
           method:"POST",
-          headers:{'Content-Type':'application/json'},
+          headers:{
+            'Content-Type':'application/json',
+            'Access-Control-Allow-Origin': '*',
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Credentials": true
+          },
           body:JSON.stringify(formData)
         })
       if(response.ok){

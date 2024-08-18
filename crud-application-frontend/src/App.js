@@ -10,7 +10,7 @@ function App() {
 
   const fetchData = async ()=>{
     try{
-      const response = await fetch('http://localhost:8082/getDetails');
+      const response = await fetch('https://springcruddemo-50021865643.development.catalystappsail.in/getDetails');
       const data = await response.json();
       setData(data);
     }catch(error){

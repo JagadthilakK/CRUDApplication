@@ -28,12 +28,14 @@ public class CRUDApplicationProjectDaoImpl implements CRUDApplicationProjectDaoI
 
 	@Override
 	public List<CRUDApplicationProject> insertDetail(CRUDApplicationProject crudApplicationProject) {
+		int maxId = details.stream().mapToInt(CRUDApplicationProject::getId).max().orElse(0);
+		crudApplicationProject.setId(maxId+1);
 		details.add(crudApplicationProject);
 		return null;
 	}
 
 	@Override
-	public List<CRUDApplicationProject> updateDetails(CRUDApplicationProject crudApplicationProject) {
+	public List<CRUDApplicationProject> updateDetail(CRUDApplicationProject crudApplicationProject) {
 		for(int i=0;i<details.size();i++) {
 			CRUDApplicationProject current = details.get(i);
 			if(current.getId()==crudApplicationProject.getId()) {

@@ -25,8 +25,8 @@ public class CRUDApplicationProjectServiceImpl implements CRUDApplicationProject
 	}
 
 	@Override
-	public List<CRUDApplicationProject> updateDetails(CRUDApplicationProject crudApplicationProject) {
-		return crudApplicationProjectDaoInterface.updateDetails(crudApplicationProject);
+	public List<CRUDApplicationProject> updateDetail(CRUDApplicationProject crudApplicationProject) {
+		return crudApplicationProjectDaoInterface.updateDetail(crudApplicationProject);
 	}
 
 	@Override
