@@ -7,6 +7,7 @@ function App() {
 
   const [data ,setData] = useState([]);
   const [searchItem,setSearchItem]= useState("");
+  const [serverErrorText,setServerErrorText] = useState(false)
 
   const fetchData = async ()=>{
     try{
@@ -18,6 +19,10 @@ function App() {
     }
   }
 
+  setTimeout(()=>{
+    setServerErrorText(true)
+  },10000)
+
   useEffect(()=>{
     fetchData();
   },[])
@@ -27,6 +32,7 @@ function App() {
       <Header/>
       <SearchAndButton onRecordAdded={fetchData} setSearchItem={setSearchItem}/>
       <DataTable data={data} onEdited={fetchData} searchItem={searchItem} />
+      {serverErrorText && <h4 style={{textAlign:"center",color:"red"}}>If adding, editing, or deleting records is not working, there might be an issue with the server or the server might be down, especially since it is a free server where I have hosted my Spring Boot application.</h4>}
     </div>
   );
 }
